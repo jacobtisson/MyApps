@@ -1,0 +1,125 @@
+
+GraphQL Queries
+================
+GetAuthors
+==========
+query{
+  authors{
+    id,
+    name,
+    description
+  }
+}
+
+GetAuthorbyId
+==============
+query authorById($authorId:UUID!){
+  authorById(authorId: $authorId) {
+    id,
+    name,
+    description
+  }
+}
+
+GetBooks
+=========
+query{
+  books{
+    id,
+    title,
+    description,
+    authorId
+  }
+}
+
+GetBookbyId
+==============
+query bookId ($bookId:UUID!){
+  bookById (bookId: $bookId) {
+    id,
+    title,
+    description,
+    authorId
+  }
+}
+
+AddAuthor
+==========
+mutation ($addauthor:AuthorInput!){
+addAuthor(authorInput: $addauthor) {
+  id,
+  name,
+  description
+}
+}
+
+variables
+---------
+{
+  "addauthor": {
+    "name": "Lean Dote",
+    "description": "Environment Analyst"    
+  }  
+}
+
+UpdateAuthor
+=============
+mutation ($updateAuthor:AuthorUpdateInput!){
+updateAuthor(updateAuthorInput: $updateAuthor) {
+id,
+name,
+description
+}
+}
+
+variables
+-----------
+{
+"updateAuthor": {
+"id": "07b2277f-21e6-4d5e-811a-2e21abc7756e",
+"name": "Edmonte payne",
+"description": "Stock Market Analyst"
+}  
+}
+
+AddBook
+===========
+mutation ($addBook:BookInput!){
+addBook(bookInput: $addBook){
+title,
+description,
+authorId
+}
+}
+
+variables
+----------
+{
+  "addBook": {
+    "title": "Stock Market Wonders",
+    "description": "Market Analysis",
+    "authorId": "07b2277f-21e6-4d5e-811a-2e21abc7756e"
+  }
+}
+
+UpdateBook
+============
+mutation ($updateBookInput:BookUpdateInput!){
+updateBook (updateBookInput: $updateBookInput) {  
+id,
+title,
+description,
+authorId
+}
+}
+
+variables
+---------
+{
+"updateBookInput": {
+"id": "BE0A8D4D-F48F-4C2E-A2AF-196C57EED6D5",
+"title": "Earth's Greatest Wonders ",
+"description": "Nature",
+"authorId": "afb9e234-9709-4276-b6cf-08db021f3009"
+}  
+}
